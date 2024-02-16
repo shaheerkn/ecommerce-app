@@ -79,7 +79,7 @@
     methods: {
       async deleteData(productId) {
         try {
-          const response = await axios.delete(`http://localhost:3001/cart/${productId}`);
+          const response = await axios.delete(`/.netlify/functions/getData/cart/${productId}`);
           console.log('Data deleted successfully:', response.data);
           this.fetchCartData()
         } catch (error) {
@@ -88,7 +88,7 @@
       },
       fetchCartData() {
         axios
-        .get(`http://localhost:3001/cart`)
+        .get(`/.netlify/functions/getData/cart`)
         .then(response => {
           this.cartItems = response.data;
           this.totalPrice = this.cartItems.reduce((total, item) => {

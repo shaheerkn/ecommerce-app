@@ -1,8 +1,12 @@
-// functions/getData.js
+const fs = require('fs');
+const path = require('path');
+
 exports.handler = async (event, context) => {
   try {
-    // Your code here to fetch and process data
-    const data = { message: "Hello from serverless function!" };
+    // Read the JSON file
+    const dbFilePath = path.resolve(__dirname, 'data', 'db.json');
+    const jsonData = fs.readFileSync(dbFilePath, 'utf-8');
+    const data = JSON.parse(jsonData);
 
     return {
       statusCode: 200,

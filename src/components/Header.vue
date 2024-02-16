@@ -42,7 +42,7 @@
     methods: {
       fetchCartLegth() {
         axios
-        .get(`http://localhost:3001/cart`)
+        .get(`/.netlify/functions/getData/cart`)
         .then(response => {
           this.cartLength = response.data.length
         })
