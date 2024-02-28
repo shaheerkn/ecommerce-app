@@ -69,7 +69,7 @@
     methods: {
       async sendData() {
         try {
-          const response = await axios.post('/.netlify/functions/getData/cart/', {
+          const response = await axios.post('http://localhost:3000/cart/', {
             product: {
               "name": this.product.name,
               "image": this.image,
@@ -102,7 +102,7 @@
     },
     mounted() {
       axios
-      .get(`/.netlify/functions/getData/product/${this.productId}`)
+      .get(`http://localhost:3000/product/${this.productId}`)
       .then(response => {
         this.response = this.product = response.data
         this.componentLoaded = true;

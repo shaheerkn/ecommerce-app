@@ -41,7 +41,7 @@
     },
     mounted() {
       axios
-      .get('/.netlify/functions/getData/product')
+      .get('http://localhost:3000/product')
       .then(response => {
         this.response = this.products = response.data
       })
